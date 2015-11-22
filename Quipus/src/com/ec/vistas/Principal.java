@@ -58,7 +58,6 @@ public class Principal extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
-        openMenuItem = new javax.swing.JMenuItem();
         saveMenuItem = new javax.swing.JMenuItem();
         saveAsMenuItem = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
@@ -82,22 +81,8 @@ public class Principal extends javax.swing.JFrame {
         fileMenu.setMnemonic('f');
         fileMenu.setText("Usuario");
 
-        openMenuItem.setMnemonic('o');
-        openMenuItem.setText("Crear usuario");
-        openMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                openMenuItemMouseClicked(evt);
-            }
-        });
-        openMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                openMenuItemActionPerformed(evt);
-            }
-        });
-        fileMenu.add(openMenuItem);
-
         saveMenuItem.setMnemonic('s');
-        saveMenuItem.setText("Listar usuario");
+        saveMenuItem.setText("Consultar usuario");
         saveMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveMenuItemActionPerformed(evt);
@@ -106,8 +91,12 @@ public class Principal extends javax.swing.JFrame {
         fileMenu.add(saveMenuItem);
 
         saveAsMenuItem.setMnemonic('a');
-        saveAsMenuItem.setText("Save As ...");
-        saveAsMenuItem.setDisplayedMnemonicIndex(5);
+        saveAsMenuItem.setText("Restablecer Contraseña");
+        saveAsMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveAsMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(saveAsMenuItem);
 
         exitMenuItem.setMnemonic('x');
@@ -202,18 +191,6 @@ public class Principal extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
-    private void openMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_openMenuItemMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_openMenuItemMouseClicked
-
-    private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
-        // TODO add your handling code here:
-    //    UsuarioView vistaUsuario = new UsuarioView();
-    //    desktopPane.add(vistaUsuario);
-       
-    //    vistaUsuario.show();
-    }//GEN-LAST:event_openMenuItemActionPerformed
-
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
         // TODO add your handling code here:
 
@@ -224,9 +201,9 @@ public class Principal extends javax.swing.JFrame {
 
     private void cutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuItemActionPerformed
         // TODO add your handling code here:
-       // ConsultarProveedor ConsulProv = new ConsultarProveedor();
-       // desktopPane.add(ConsulProv);
-       // ConsulProv.show();
+        ListaProveedor ConsulProv = new ListaProveedor();
+        desktopPane.add(ConsulProv);
+        ConsulProv.show();
     }//GEN-LAST:event_cutMenuItemActionPerformed
 
     private void contentMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contentMenuItemActionPerformed
@@ -247,6 +224,15 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void saveAsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsMenuItemActionPerformed
+        // TODO add your handling code here:
+        MainRestablecerContraseña ResPasw= new MainRestablecerContraseña();
+        desktopPane.add(ResPasw);
+        ResPasw.show();
+        
+        
+    }//GEN-LAST:event_saveAsMenuItemActionPerformed
 
 
 
@@ -310,7 +296,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem saveAsMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
     // End of variables declaration//GEN-END:variables
