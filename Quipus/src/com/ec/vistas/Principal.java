@@ -215,9 +215,9 @@ public class Principal extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-       // ParametrosAño ParamAño = new ParametrosAño();
-       // desktopPane.add(ParamAño);
-       // ParamAño.show();
+        ListarAño ListAño = new ListarAño();
+        desktopPane.add(ListAño);
+        ListAño.show();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed

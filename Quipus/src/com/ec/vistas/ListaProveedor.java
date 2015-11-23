@@ -29,7 +29,7 @@ public class ListaProveedor extends javax.swing.JInternalFrame {
      * Creates new form ListaUsuriosView
      */
     public ListaProveedor() {
-        super("Listado de usuarios #" + (++openFrameCount),
+        super("Listado de Proveedor #" + (++openFrameCount),
                 true, //resizable
                 true, //closable
                 true, //maximizable
