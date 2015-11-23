@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/david/Documents/NetBeansProjects/Quipus/src/com/ec/vistas/login.java</file>
-            <file>file:/C:/Users/david/Documents/NetBeansProjects/Quipus/src/com/ec/vistas/RegistrarProveedor.java</file>
-            <file>file:/C:/Users/david/Documents/NetBeansProjects/Quipus/src/com/ec/vistas/ListaAño.java</file>
-            <file>file:/C:/Users/david/Documents/NetBeansProjects/Quipus/src/com/ec/vistas/RegistrarUsu.java</file>
-            <file>file:/C:/Users/david/Documents/NetBeansProjects/Quipus/src/com/ec/vistas/ListaProveedor.java</file>
-            <file>file:/C:/Users/david/Documents/NetBeansProjects/Quipus/src/com/ec/vistas/Principal.java</file>
+            <file>file:/D:/POLI/Sexto/Libres/ProyectoQuipus/Quipus/Quipus/src/com/ec/vistas/MainRestablecerContraseña.java</file>
+            <file>file:/D:/POLI/Sexto/Libres/ProyectoQuipus/Quipus/Quipus/src/com/ec/vistas/Principal.java</file>
+            <file>file:/D:/POLI/Sexto/Libres/ProyectoQuipus/Quipus/Quipus/src/com/ec/vistas/RegistrarProveedor.java</file>
+            <file>file:/D:/POLI/Sexto/Libres/ProyectoQuipus/Quipus/Quipus/src/com/ec/vistas/RestablecerPasword.java</file>
         </group>
     </open-files>
 </project-private>
