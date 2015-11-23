@@ -137,7 +137,12 @@ public class Principal extends javax.swing.JFrame {
         helpMenu.add(contentMenuItem);
 
         aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("Gastos de Negocio");
+        aboutMenuItem.setText("Registrar Factura");
+        aboutMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aboutMenuItemActionPerformed(evt);
+            }
+        });
         helpMenu.add(aboutMenuItem);
 
         menuBar.add(helpMenu);
@@ -233,6 +238,13 @@ public class Principal extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_saveAsMenuItemActionPerformed
+
+    private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
+        // TODO add your handling code here:
+        FacturaIngresos objFactura = new FacturaIngresos();
+        desktopPane.add(objFactura);
+        objFactura.show();
+    }//GEN-LAST:event_aboutMenuItemActionPerformed
 
 
 
