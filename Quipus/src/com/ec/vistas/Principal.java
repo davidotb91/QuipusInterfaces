@@ -12,6 +12,7 @@ import com.ec.vistas.UsuarioView;*/
 import java.awt.Desktop;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -57,11 +58,8 @@ public class Principal extends javax.swing.JFrame {
         desktopPane = new javax.swing.JDesktopPane();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
-        fileMenu = new javax.swing.JMenu();
-        saveMenuItem = new javax.swing.JMenuItem();
-        saveAsMenuItem = new javax.swing.JMenuItem();
-        exitMenuItem = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
         cutMenuItem = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         contentMenuItem = new javax.swing.JMenuItem();
@@ -78,40 +76,16 @@ public class Principal extends javax.swing.JFrame {
         desktopPane.add(jDesktopPane1);
         jDesktopPane1.setBounds(60, 20, 0, 0);
 
-        fileMenu.setMnemonic('f');
-        fileMenu.setText("Usuario");
-
-        saveMenuItem.setMnemonic('s');
-        saveMenuItem.setText("Consultar usuario");
-        saveMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveMenuItemActionPerformed(evt);
-            }
-        });
-        fileMenu.add(saveMenuItem);
-
-        saveAsMenuItem.setMnemonic('a');
-        saveAsMenuItem.setText("Restablecer Contraseña");
-        saveAsMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveAsMenuItemActionPerformed(evt);
-            }
-        });
-        fileMenu.add(saveAsMenuItem);
-
-        exitMenuItem.setMnemonic('x');
-        exitMenuItem.setText("Exit");
-        exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitMenuItemActionPerformed(evt);
-            }
-        });
-        fileMenu.add(exitMenuItem);
-
-        menuBar.add(fileMenu);
-
         editMenu.setMnemonic('e');
         editMenu.setText("Proveedores");
+
+        jMenuItem3.setText("Ingresar");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        editMenu.add(jMenuItem3);
 
         cutMenuItem.setMnemonic('t');
         cutMenuItem.setText("Consultar");
@@ -192,18 +166,6 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
           
-    private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_exitMenuItemActionPerformed
-
-    private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
-        // TODO add your handling code here:
-
-     //   ListaUsuriosView listaUsuriosView = new ListaUsuriosView();
-       // desktopPane.add(listaUsuriosView);
-        //listaUsuriosView.show();
-    }//GEN-LAST:event_saveMenuItemActionPerformed
-
     private void cutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuItemActionPerformed
         // TODO add your handling code here:
         ListaProveedor ConsulProv = new ListaProveedor();
@@ -213,9 +175,9 @@ public class Principal extends javax.swing.JFrame {
 
     private void contentMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contentMenuItemActionPerformed
         // TODO add your handling code here:
-      //  ConsultarFactura ConsFac = new ConsultarFactura();
-      //  desktopPane.add(ConsFac);
-      //  ConsFac.show();
+        ListaFactura ConsFac = new ListaFactura();
+        desktopPane.add(ConsFac);
+        ConsFac.show();
     }//GEN-LAST:event_contentMenuItemActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -227,17 +189,8 @@ public class Principal extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        
+        JOptionPane.showMessageDialog(rootPane, "Año Activo", null, WIDTH, null);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void saveAsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsMenuItemActionPerformed
-        // TODO add your handling code here:
-        MainRestablecerContraseña ResPasw= new MainRestablecerContraseña();
-        desktopPane.add(ResPasw);
-        ResPasw.show();
-        
-        
-    }//GEN-LAST:event_saveAsMenuItemActionPerformed
 
     private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
         // TODO add your handling code here:
@@ -245,6 +198,13 @@ public class Principal extends javax.swing.JFrame {
         desktopPane.add(objFactura);
         objFactura.show();
     }//GEN-LAST:event_aboutMenuItemActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        RegistrarProveedor RegProv = new RegistrarProveedor();
+        desktopPane.add(RegProv);
+        RegProv.show();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
 
 
@@ -297,8 +257,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem cutMenuItem;
     public static javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenu editMenu;
-    private javax.swing.JMenuItem exitMenuItem;
-    private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
@@ -307,8 +265,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem saveAsMenuItem;
-    private javax.swing.JMenuItem saveMenuItem;
     // End of variables declaration//GEN-END:variables
 }
