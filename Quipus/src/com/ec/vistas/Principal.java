@@ -27,9 +27,11 @@ public class Principal extends javax.swing.JFrame {
      * Creates new form Principal
      */
     public Principal() {
-        
-        
+       
         initComponents();
+         VistaTipodeRegistro ObjTipoRegistro =new VistaTipodeRegistro();
+        desktopPane.add(ObjTipoRegistro);
+        ObjTipoRegistro.show();
                
      /*   menuBar.setEnabled(activador);
         menuBar.setVisible(activador);
@@ -58,97 +60,56 @@ public class Principal extends javax.swing.JFrame {
         desktopPane = new javax.swing.JDesktopPane();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
-        editMenu = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        cutMenuItem = new javax.swing.JMenuItem();
-        helpMenu = new javax.swing.JMenu();
-        contentMenuItem = new javax.swing.JMenuItem();
-        aboutMenuItem = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
+        loginMenu = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         desktopPane.add(jDesktopPane1);
         jDesktopPane1.setBounds(60, 20, 0, 0);
 
-        editMenu.setMnemonic('e');
-        editMenu.setText("Proveedores");
+        jMenu3.setText("Reportes");
 
-        jMenuItem3.setText("Ingresar");
+        jMenuItem3.setText("Por Proveedor");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
             }
         });
-        editMenu.add(jMenuItem3);
+        jMenu3.add(jMenuItem3);
 
-        cutMenuItem.setMnemonic('t');
-        cutMenuItem.setText("Consultar");
-        cutMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cutMenuItemActionPerformed(evt);
-            }
-        });
-        editMenu.add(cutMenuItem);
+        jMenuItem5.setText("Por Rugbro");
+        jMenu3.add(jMenuItem5);
 
-        menuBar.add(editMenu);
+        jMenuItem6.setText("Por Fecha");
+        jMenu3.add(jMenuItem6);
 
-        helpMenu.setMnemonic('h');
-        helpMenu.setText("Facturas");
-
-        contentMenuItem.setMnemonic('c');
-        contentMenuItem.setText("Consultar");
-        contentMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contentMenuItemActionPerformed(evt);
-            }
-        });
-        helpMenu.add(contentMenuItem);
-
-        aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("Registrar Factura");
-        aboutMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                aboutMenuItemActionPerformed(evt);
-            }
-        });
-        helpMenu.add(aboutMenuItem);
-
-        menuBar.add(helpMenu);
-
-        jMenu1.setText("Configuración");
-
-        jMenuItem2.setText("Parametros por Años");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem2);
-
-        jMenuItem1.setText("Año Activo");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
-
-        menuBar.add(jMenu1);
-
-        jMenu3.setText("Reportes");
         menuBar.add(jMenu3);
 
         jMenu4.setText("Ayuda");
         menuBar.add(jMenu4);
 
-        jMenu5.setText("Salir");
-        menuBar.add(jMenu5);
+        loginMenu.setMnemonic('h');
+        loginMenu.setText("Salir");
+
+        jMenuItem1.setText("Volver al Login");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        loginMenu.add(jMenuItem1);
+
+        jMenuItem7.setText("Salir ");
+        loginMenu.add(jMenuItem7);
+
+        menuBar.add(loginMenu);
 
         setJMenuBar(menuBar);
 
@@ -160,51 +121,22 @@ public class Principal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
           
-    private void cutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuItemActionPerformed
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
-        ListaProveedor ConsulProv = new ListaProveedor();
-        desktopPane.add(ConsulProv);
-        ConsulProv.show();
-    }//GEN-LAST:event_cutMenuItemActionPerformed
-
-    private void contentMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contentMenuItemActionPerformed
-        // TODO add your handling code here:
-        ListaFactura ConsFac = new ListaFactura();
-        desktopPane.add(ConsFac);
-        ConsFac.show();
-    }//GEN-LAST:event_contentMenuItemActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-        ListarAño ListAño = new ListarAño();
-        desktopPane.add(ListAño);
-        ListAño.show();
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(rootPane, "Año Activo", null, WIDTH, null);
+        login objLogin = new login();
+        objLogin.setVisible(true);
+        
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
-        // TODO add your handling code here:
-        FacturaIngresos objFactura = new FacturaIngresos();
-        desktopPane.add(objFactura);
-        objFactura.show();
-    }//GEN-LAST:event_aboutMenuItemActionPerformed
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
-        RegistrarProveedor RegProv = new RegistrarProveedor();
-        desktopPane.add(RegProv);
-        RegProv.show();
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
 
 
@@ -252,20 +184,16 @@ public class Principal extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem aboutMenuItem;
-    private javax.swing.JMenuItem contentMenuItem;
-    private javax.swing.JMenuItem cutMenuItem;
     public static javax.swing.JDesktopPane desktopPane;
-    private javax.swing.JMenu editMenu;
-    private javax.swing.JMenu helpMenu;
     private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenu loginMenu;
     private javax.swing.JMenuBar menuBar;
     // End of variables declaration//GEN-END:variables
 }

@@ -89,6 +89,8 @@ public class ListaFactura extends javax.swing.JInternalFrame {
         jComboBox1 = new javax.swing.JComboBox();
         jLabel2 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        btnNuevo = new javax.swing.JButton();
+        btnGenerar = new javax.swing.JButton();
 
         setTitle("Lista de Facturas");
         setVisible(true);
@@ -140,30 +142,49 @@ public class ListaFactura extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Fecha:");
 
+        btnNuevo.setText("Nuevo");
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
+
+        btnGenerar.setText("Generar Reporte");
+        btnGenerar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 957, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 957, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(327, 327, 327)
+                        .addComponent(btnNuevo)
+                        .addGap(34, 34, 34)
+                        .addComponent(jButton1)
+                        .addGap(35, 35, 35)
+                        .addComponent(jButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnGenerar)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(249, 249, 249)
-                .addComponent(jButton1)
-                .addGap(35, 35, 35)
-                .addComponent(jButton3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,8 +201,10 @@ public class ListaFactura extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton3))
-                .addContainerGap(33, Short.MAX_VALUE))
+                    .addComponent(jButton3)
+                    .addComponent(btnNuevo)
+                    .addComponent(btnGenerar))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -211,9 +234,7 @@ public class ListaFactura extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        RegistrarProveedor RegProv = new RegistrarProveedor();
-        desktopPane.add(RegProv);
-        RegProv.show();
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -221,7 +242,23 @@ public class ListaFactura extends javax.swing.JInternalFrame {
         JOptionPane.showConfirmDialog(null, "Eliminacion de Factura \nEliminar factura: \n Del Proveedor:","Desea eliminar",JOptionPane.YES_NO_OPTION);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+        // TODO add your handling code here:
+        VistaRegistrarEgreso ObjTipoEgreso =new VistaRegistrarEgreso();
+        desktopPane.add(ObjTipoEgreso);
+        ObjTipoEgreso.show();
+    }//GEN-LAST:event_btnNuevoActionPerformed
+
+    private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
+        // TODO add your handling code here:
+        VistaSeleccionTipoReporte objTipoReporte = new VistaSeleccionTipoReporte();
+            desktopPane.add(objTipoReporte);
+            objTipoReporte.show();
+    }//GEN-LAST:event_btnGenerarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGenerar;
+    private javax.swing.JButton btnNuevo;
     private javax.swing.JTable dgvUsuario;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
