@@ -4,25 +4,25 @@
  */
 package com.ec.servicio;
 
-import com.ec.basedatos.Conexion;
-import com.ec.entidades.Usuario;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author gato
  */
 public class ServicioUsuario {
+    
+    
 
+
+}
+
+/*
     static Connection cn;
     static Statement s;
     static ResultSet rs;
-    
+    */
 
-    public void Crear(Usuario usuario) {
+    /*public void Crear(Usuario usuario) {
         try {
             cn = Conexion.enlace();
             Statement s = cn.createStatement();
@@ -40,15 +40,12 @@ public class ServicioUsuario {
                     + ",'"
                     + usuario.getRuc()
                     + "','"
-                    + usuario.getNick()
                     + "','"
                     + usuario.getNombre()
                     + "','"
-                    + usuario.getApellido()
                     + "','"
                     + usuario.getContrasena()
                     + "','"
-                    +usuario.getSalario().doubleValue()
                     + "','"
                     +usuario.getCorreo()
                     + "','"
@@ -110,5 +107,5 @@ public class ServicioUsuario {
         }
     return existe; 
     }
+*/
 
-}

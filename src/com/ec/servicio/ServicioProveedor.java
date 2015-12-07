@@ -8,7 +8,7 @@ package com.ec.servicio;
 import com.ec.basedatos.Conexion;
 import com.ec.entidades.Proveedor;
 import com.ec.entidades.Usuario;
-import static com.ec.servicio.ServicioUsuario.cn;
+//import static com.ec.servicio.ServicioUsuario.cn;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

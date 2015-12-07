@@ -21,64 +21,64 @@ public class CrearBaseDatos {
         try {
             cn = Conexion.enlace();
             stmt = cn.createStatement();
-            String sqlTablaUsuario = "CREATE TABLE IF NOT EXISTS usuario  ("
-                    + "id_usuario INTEGER PRIMARY KEY AUTOINCREMENT   NOT NULL ,"
-                    + "ruc_usuario CHARACTER(15) NOT NULL ,"
-                    + "nick_usuario CHARACTER(20) NOT NULL ,"
-                    + "nombre_usuario CHARACTER(50) NOT NULL ,"
-                    + "apellido_usuario CHARACTER(50) NOT NULL ,"
-                    + "password_usuario CHARACTER(20) NOT NULL ,"
-                    + "salario_usuario DOUBLE NOT NULL ,"
-                    + "correo_usuario CHARACTER(150) NOT NULL ,"
-                    + "pregunta_usuario CHARACTER(100) NULL ,"
-                    + "respuesta_usuario CHARACTER(100) NULL);";
+            String sqlTablaUsuario = "CREATE TABLE IF NOT EXISTS IF NOT EXISTS Usuario (" +
+"	id_usuario INTEGER NOT NULL," +
+"	nombre_usuario CHARACTER(25) NOT NULL ," +
+"	contraseña_usuario CHARACTER(10) NOT NULL ," +
+"	cedula_usuario CHARACTER(13) NOT NULL ," +
+"	PRIMARY KEY(id_usuario asc));";
+            
+            String sqlTablaDetalle="CREATE TABLE IF NOT EXISTS IF NOT EXISTS Detalle "
+                    + "( id_detalle INTEGER NOT NULL , "
+                    + "usuario_id_usuario INTEGER NOT NULL "
+                    + ",factura_id_factura INTEGER NOT NULL ,	"
+                    + "proveedor_id_proveedor INTEGER NOT NULL , "
+                    + "FOREIGN KEY (usuario_id_usuario) "
+                    + "REFERENCES Usuario(id_usuario), "
+                    + "FOREIGN KEY (factura_id_factura) "
+                    + "REFERENCES Factura(id_factura), "
+                    + "FOREIGN KEY (proveedor_id_proveedor) "
+                    + "REFERENCES Proveedor(id_proveedor), "
+                    + "PRIMARY KEY (id_detalle) );";
 
-            String sqlTablaFactura = "CREATE TABLE IF NOT EXISTS factura ("
-                    + "id INTEGER PRIMARY KEY AUTOINCREMENT   NOT NULL ,"
-                    + "numero_factura CHARACTER(20) NOT NULL ,"
-                    + "dia_factura INTEGER NOT NULL ,"
-                    + "mes_factura INTEGER NOT NULL ,"
-                    + "alimentacion FLOAT NULL ,"
-                    + "vestimenta FLOAT NULL ,"
-                    + "salud FLOAT NULL ,"
-                    + "educacion FLOAT NULL ,"
-                    + "vivienda FLOAT NULL ,"
-                    + "otros FLOAT NULL ,"
-                    + "subtotal FLOAT NOT NULL ,"
-                    + "valor_iva FLOAT NOT NULL ,"
-                    + "valor_total FLOAT NOT NULL ,"
-                    + "nombre_proveedor VARCHAR(50) NOT NULL ,"
-                    + "proveedor_id_proveedor INTEGER NOT NULL ,"
-                    + "configuracion_anio_conf INTEGER NOT NULL ,"
-                    + "usuario_id_usuario INTEGER NOT NULL ,"
-                    + "usuario_nick_usuario CHARACTER(20) NOT NULL ,"
-                    + "usuario_correo_usuario CHARACTER(150) NOT NULL ,"
-                    + "FOREIGN KEY (usuario_id_usuario) REFERENCES usuario(id_usuario),"
-                    + "FOREIGN KEY (usuario_nick_usuario) REFERENCES usuario(nick_usuario),"
-                    + "FOREIGN KEY (usuario_correo_usuario) REFERENCES usuario(correo_usuario),"
-                    + "FOREIGN KEY (proveedor_id_proveedor) REFERENCES proveedor(id_proveedor),"
-                    + "FOREIGN KEY (configuracion_anio_conf) REFERENCES configuracion(anio_conf))";
+            String sqlTablaFactura = "CREATE TABLE IF NOT EXISTS Factura (" +
+            "id_factura INTEGER NOT NULL ," +
+            "fecha  NOT NULL ," +
+            "PRIMARY KEY(id_factura asc));";
 
-            String sqlTablaProveedor = "CREATE TABLE IF NOT EXISTS proveedor ("
-                    + "id_proveedor INTEGER PRIMARY KEY AUTOINCREMENT   NOT NULL ,"
-                    + "ruc_proveedor CHARACTER(15) NOT NULL ,"
-                    + "nombre_proveedor CHARACTER(50) NOT NULL ,"
-                    + "ciudad_proveedor CHARACTER(30)  NULL ,"
-                    + "direccion_proveedor CHARACTER(150) NULL ,"
-                    + "telefono_proveedor INTEGER  NULL)";
-
-            String sqlTablaConfiguracion = "CREATE TABLE IF NOT EXISTS configuracion ("
-                    + "anio_conf INTEGER PRIMARY KEY NOT NULL ,"
-                    + "limite_alimentacion FLOAT NOT NULL ,"
-                    + "limite_salud FLOAT NOT NULL ,"
-                    + "limite_vivienda FLOAT NOT NULL ,"
-                    + "limite_vestimenta FLOAT NOT NULL ,"
-                    + "limite_eduacion FLOAT NOT NULL)";
-
+            String sqlTablaProveedor = "CREATE TABLE IF NOT EXISTS Proveedor "
+                    + "(id_proveedor INTEGER NOT NULL ,"
+                    + "nombre_proveedor CHARACTER(20) NOT NULL ,"
+                    + "rol CHARACTER(20) NOT NULL ,"
+                    + "PRIMARY KEY(id_proveedor asc));";
+            String sqlTablaRubro="CREATE TABLE IF NOT EXISTS Rubro "
+                    + "( id_rubro INTEGER NOT NULL , "
+                    + "valor_actual DECIMAL(6,3) NOT NULL , "
+                    + "detalle_rubro_id_detalle_rubro INTEGER NOT NULL , "
+                    + "FOREIGN KEY (detalle_rubro_id_detalle_rubro) "
+                    + "REFERENCES Detalle_Rubro(id_detalle_rubro), "
+                    + "PRIMARY KEY(id_rubro asc));";
+            
+            String sqlTablaDetalloRubro = "CREATE TABLE IF NOT EXISTS Detalle_Rubro "
+                    + "( id_detalle_rubro INTEGER NOT NULL , "
+                    + "nombre_rubro CHARACTER(20) NOT NULL , "
+                    + "valor_máximo DECIMAL(6,3) NOT NULL , "
+                    + "tipo  NOT NULL , PRIMARY KEY(id_detalle_rubro asc));";
+            String sqlTablaRubroFactura ="CREATE TABLE IF NOT EXISTS Rubro_Factura ("
+                    + " rubro_id_rubro INTEGER NOT NULL , "
+                    + "factura_id_factura INTEGER NOT NULL , "
+                    + "FOREIGN KEY (rubro_id_rubro) "
+                    + "REFERENCES Rubro(id_rubro), "
+                    + "FOREIGN KEY (factura_id_factura) "
+                    + "REFERENCES Factura(id_factura);";
             stmt.executeUpdate(sqlTablaUsuario);
             stmt.executeUpdate(sqlTablaFactura);
             stmt.executeUpdate(sqlTablaProveedor);
-            stmt.executeUpdate(sqlTablaConfiguracion);
+            stmt.executeUpdate(sqlTablaDetalloRubro);
+            stmt.executeUpdate(sqlTablaRubro);
+            stmt.executeUpdate(sqlTablaDetalle);
+            stmt.executeUpdate(sqlTablaRubroFactura);
+            
             stmt.close();
             cn.close();
             //System.out.println("La tablas han sido creadas exitosamente.");
